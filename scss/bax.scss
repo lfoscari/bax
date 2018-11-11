@@ -1,0 +1,166 @@
+@import "base/_all";
+@import "layout/_all";
+
+@mixin blend {
+  mix-blend-mode: difference;
+  z-index: 0;
+}
+
+.blend {
+  @include blend;
+}
+
+.title {
+  color: white;
+  position: fixed;
+  top: $space;
+  width: 100%;
+  text-align: center;
+
+  a {
+    @extend h1;
+    text-decoration: none;
+  }
+}
+
+.container {
+  padding: $space;
+  display: block;
+  color: white;
+  background-color: #0000d8;
+  @include transition(background-color);
+  min-height: 100%;
+
+  &.tall {
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+main {
+  &.full-height {
+    height: 100%;
+  }
+
+  .project-link {
+    text-align: center;
+    display: block;
+    height: 100%;
+  }
+}
+
+nav {
+  @include blend;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  max-height: 100vh;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  padding: $space 0;
+
+  &.left {
+    left: $space;
+    align-items: flex-start;
+  }
+
+  &.right {
+    right: $space;
+    align-items: flex-end;
+  }
+
+  .rotate {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+}
+
+.label {
+  width: 100%;
+}
+
+$swatches: 12px;
+
+.swatches {
+  span {
+    display: block;
+    height: $swatches;
+    width: $swatches;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: $swatches / 2 0;
+  }
+}
+
+.project-link {
+  width: 100%;
+  height: 100%;
+
+  img {
+    max-width: 100%;
+    max-height: 80%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+#rotating_text {
+  pointer-events: none;
+  position: absolute;
+  width: 1000px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  fill: white;
+  font-size: 6.5px;
+  font-family: $font-family-display;
+  z-index: 100;
+  max-height: 100vh;
+  max-width: 100vw;
+
+  path {
+    fill: none;
+  }
+}
+
+/* Works page */
+
+.works-container {
+  columns: 1;
+  column-gap: $space;
+  max-width: 75rem;
+  display: block;
+  margin: $space * 2 auto $space auto;
+
+  @include tablet-portrait-up {
+    columns: 2;
+  }
+
+  @include tablet-landscape-up {
+    columns: 4;
+  }
+
+  .work {
+    display: inline-block;
+    margin: 0 0 $space / 2;
+    width: 100%;
+    text-decoration: none;
+    @include transition(filter);
+
+    img {
+      max-width: 100%;
+    }
+
+    p {
+      @include blend;
+      width: 100%;
+      border-bottom: 1px solid white;
+      padding-bottom: .5rem;
+      margin-top: 0;
+    }
+  }
+}

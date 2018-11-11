@@ -1,0 +1,34 @@
+/**
+ *
+ *  Colors
+ *
+ */
+
+$colors: ();
+
+@each $name, $color in $colors {
+  .#{$name} {
+    color: $color;
+  }
+}
+
+/**
+ *
+ *  Z-index
+ *
+ */
+
+$zn: -10;
+$z0: 0;
+$z1: 10;
+$z2: 20;
+$z3: 30;
+$z4: 40;
+
+/**
+ *
+ *  Spacing
+ *
+ */
+
+$space: 2rem;

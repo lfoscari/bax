@@ -1,0 +1,139 @@
+@mixin phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape-up {
+  @media (min-width: 980px) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape-down {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin width($number) {
+  width: 100%;
+  @include tablet-landscape-up {
+    width: $number * 1%;
+  }
+}
+
+@mixin center {
+  @include tablet-landscape-up {
+    margin: 0 auto;
+  }
+}
+
+@mixin float {
+  float: left;
+}
+
+@mixin hidden {
+  display: none;
+}
+
+@mixin visible {
+  display: block;
+}
+
+.hidden {
+  @include hidden;
+}
+
+.visible {
+  @include visible;
+}
+
+@mixin transition($target...) {
+  @if length($target) == 0 {
+    $target: all;
+  }
+  transition: 250ms ease-out $target;
+}
+
+@mixin grid($width) {
+  display: flex;
+  flex-flow: row wrap;
+
+  & > * {
+    flex-basis: $width * 1%;
+    flex-grow: 1;
+  }
+}
+
+// @mixin container {
+//   width: 100%;
+//   display: block;
+//
+//   @include tablet-portrait-up {
+//     width: 85%;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+//
+//   @include tablet-landscape-up {
+//     width: 70%;
+//   }
+// }
+
+// @mixin container-post {
+//   width: 100%;
+//   margin-left: auto;
+//   margin-right: auto;
+//
+//   @include tablet-landscape-up {
+//    width: 75%;
+//   }
+//
+//   @include desktop-up {
+//    width: 50%;
+//   }
+// }
+
+// .container {
+//   @include container;
+// }
+
+@mixin overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: $z1;
+}
+
+.overlay {
+  @include overlay;
+}

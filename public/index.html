@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bax</title>
+  <link rel="stylesheet" href="css/bax.css">
+</head>
+
+<body>
+  <h1 class="title"><a href="index.html">bax</a></h1>
+  <nav class="left">
+    <a href="works.html">work</a>
+    <a href="#" class="rotate label">Fendi - #FF</a>
+    <a href="#">socials</a>
+  </nav>
+  <main class="container full-height">
+    <a href="works.html" class="project-link">
+      <img src="img/fendi.png" alt="">
+    </a>
+  </main>
+  <nav class="right">
+    <a href="#">about</a>
+    <span class="swatches">
+      <span style="background-color: #0000d8"></span>
+      <span style="background-color: #d5aa97"></span>
+      <span style="background-color: #0e6f45"></span>
+      <span style="background-color: #fb4d52"></span>
+    </span>
+    <a href="#">contact</a>
+  </nav>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" id="rotating_text" class="blend">
+    <path id="rectangle" d="M20,35.3h260v129.5H20V35.3h260v129.5H20V35.3z"/>
+    <text id="text"><textPath id="tp" xlink:href="#rectangle" startOffset="100%">
+      Andrea Bax is an italian freelance Art director and Designer. He is a curious thinker, aesthetic-focused, sensitive to design trends and with a background in Arts. His projects are basically focused on Visual Design and Animation. Based in Milan, but works everywhere -
+    </textPath></text>
+  </svg>
+  <script type="text/javascript">
+    var so = 0;
+    function Marquee() {
+      tp.setAttributeNS(null, "startOffset", so + "%");
+      if(so <= 0)
+        so = 50;
+      so -= .025;
+      requestAnimationFrame(Marquee);
+    }
+    requestAnimationFrame(Marquee);
+  </script>
+  <script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>

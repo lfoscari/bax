@@ -1,0 +1,139 @@
+$tit: 2.5rem;
+$sub: 1.5rem;
+$tag: .9rem;
+$par: 1.2rem;
+
+$tit-line-height: 1.2; // 1.3
+$sub-line-height: 1.3;
+// $tag-line-height: 1.3;
+$par-line-height: 1.5;
+
+$font-family-display: "GT Walsheim Pro Trial", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-text: $font-family-display;
+
+$regular: 400;
+$bold: 700;
+
+@font-face {
+  font-family: 'GT Walsheim Pro Trial';
+  src: url("fonts/gt-walsheim-pro-trial-regular-webfont.woff2") format('woff2'), url("fonts/gt-walsheim-pro-trial-regular-webfont.woff") format('woff');
+  font-weight: $regular;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GT Walsheim Pro Trial';
+  src: url("fonts/gt-walsheim-pro-trial-bold-webfont.woff2") format('woff2'), url("fonts/gt-walsheim-pro-trial-bold-webfont.woff") format('woff');
+  font-weight: $bold;
+  font-style: normal;
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  @include transition(color);
+  margin: inherit;
+  text-rendering: geometricPrecision;
+  font-weight: inherit;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+h1,
+h2 {
+  font-family: $font-family-display;
+  font-size: $tit;
+  line-height: $tit-line-height;
+  font-weight: $bold;
+}
+
+h3 {
+  font-family: $font-family-display;
+  font-size: $sub;
+  line-height: $sub-line-height;
+  font-weight: $bold;
+}
+
+h4,
+h5 {
+  font-family: $font-family-text;
+  font-size: $tag;
+  font-weight: $regular;
+}
+
+a,
+h6,
+li,
+p {
+  font-family: $font-family-text;
+  font-size: $par;
+  line-height: $par-line-height;
+  font-weight: $regular;
+  letter-spacing: .015em;
+  word-spacing: .001em;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.regular {
+  font-weight: $regular;
+}
+
+.bold {
+  font-weight: $bold;
+}
+
+.center {
+  text-align: center;
+}
+
+/**
+ *
+ *  Headings spacing
+ *
+ **/
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5 {
+//   margin-bottom: 1rem; // .5
+// }
+//
+// h6,
+// p {
+//   margin-bottom: 1rem;
+// }
+
+.white {
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: white;
+  }
+
+  .tag,
+  h5,
+  h6,
+  p {
+    color: white;
+  }
+}
