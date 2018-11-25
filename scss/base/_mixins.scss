@@ -92,20 +92,50 @@
   }
 }
 
-// @mixin container {
-//   width: 100%;
-//   display: block;
-//
-//   @include tablet-portrait-up {
-//     width: 85%;
-//     margin-left: auto;
-//     margin-right: auto;
-//   }
-//
-//   @include tablet-landscape-up {
-//     width: 70%;
-//   }
-// }
+@mixin container {
+  width: 100%;
+  display: block;
+
+  @include tablet-portrait-up {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include tablet-landscape-up {
+    width: 70%;
+  }
+}
+
+.cols {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.five {
+  width: 100%;
+  @include tablet-landscape-up {
+    width: 50%;
+  }
+}
+
+.seven {
+  width: 100%;
+  @include tablet-landscape-up {
+    width: 70%;
+  }
+}
+
+.three {
+  width: 100%;
+  @include tablet-landscape-up {
+    width: 30%;
+  }
+}
+
+.full {
+  width: 100%;
+}
 
 // @mixin container-post {
 //   width: 100%;

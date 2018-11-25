@@ -12,73 +12,80 @@
 <body>
   <h1 class="title"><a href="index.html">bax</a></h1>
   <nav class="left">
-    <a href="works.html" class="blend">work</a>
-    <a href="#" class="blend">socials</a>
+    <a href="works.html">work</a>
+    <a href="social.html">socials</a>
   </nav>
   <main class="container">
     <div class="works-container">
       <a class="work" href="#">
-        <img src="img/diesel.jpg">
+        <img class="lazyload blur-up" data-src="img/diesel.jpg">
         <p>Diesel - New denim</p>
       </a>
       <a class="work" href="#">
-        <img src="img/capodopera.jpg">
+        <img class="lazyload blur-up" data-src="img/capodopera.jpg">
         <p>Capod'opera - Milan Design Week</p>
       </a>
       <a class="work" href="#">
-        <img src="img/satispay.jpg">
+        <img class="lazyload blur-up" data-src="img/satispay.jpg">
         <p>Diesel - New denim</p>
       </a>
       <a class="work" href="#">
-        <img src="img/armani.jpg">
+        <img class="lazyload blur-up" data-src="img/armani.jpg">
         <p>Giorgio Armani - Le Jeu</p>
       </a>
       <a class="work" href="#">
-        <img src="img/dg.jpg">
+        <img class="lazyload blur-up" data-src="img/dg.jpg">
         <p>Dolce & Gabbana</p>
       </a>
       <a class="work" href="#">
-        <img src="img/armani.jpg">
+        <img class="lazyload blur-up" data-src="img/armani.jpg">
         <p>Giorgio Armani - Le Jeu</p>
       </a>
       <a class="work" href="#">
-        <img src="img/satispay.jpg">
+        <img class="lazyload blur-up" data-src="img/satispay.jpg">
         <p>Diesel - New denim</p>
       </a>
       <a class="work" href="#">
-        <img src="img/capodopera.jpg">
+        <img class="lazyload blur-up" data-src="img/capodopera.jpg">
         <p>Capod'opera - Milan Design Week</p>
       </a>
       <a class="work" href="#">
-        <img src="img/fendi.png">
+        <img class="lazyload blur-up" data-src="img/fendi.png">
         <p>Fendi - #FF</p>
       </a>
       <a class="work" href="#">
-        <img src="img/diesel.jpg">
+        <img class="lazyload blur-up" data-src="img/diesel.jpg">
         <p>Diesel - New denim</p>
       </a>
       <a class="work" href="#">
-        <img src="img/fendi.png">
+        <img class="lazyload blur-up" data-src="img/fendi.png">
         <p>Fendi - #FF</p>
       </a>
       <a class="work gif" href="#">
-        <img src="img/diesel_gif_static.jpg" data-hover="img/diesel_gif.gif">
+        <img class="lazyload blur-up" data-src="img/diesel_gif_static.jpg" data-hover="img/diesel_gif.gif">
         <p>Fendi - #FF</p>
       </a>
     </div>
   </main>
   <nav class="right">
-    <a href="#" class="blend">about</a>
-    <span class="swatches">
-      <span style="background-color: #0000d8"></span>
-      <span style="background-color: #d5aa97"></span>
-      <span style="background-color: #0e6f45"></span>
-      <span style="background-color: #fb4d52"></span>
-    </span>
-    <a href="#" class="blend">contact</a>
+    <a href="about.html">about</a>
+    <a href="#">contact</a> <!-- onclick="openModal()" -->
   </nav>
 
+  <span class="swatches">
+    <span style="background-color: #0000d8"></span>
+    <span style="background-color: #d5aa97"></span>
+    <span style="background-color: #0e6f45"></span>
+    <span style="background-color: #fb4d52"></span>
+  </span>
+
+  <!-- <div id="modal" class="modal">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <a href="#" id="modal-close" onclick="closeModal()">close</a>
+  </div> -->
+
   <script src="js/works.js" charset="utf-8"></script>
+  <script src="js/lazysizes.js" async="" charset="utf-8"></script>
 </body>
 
 </html>

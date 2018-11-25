@@ -6,15 +6,14 @@ var colorsources = document.querySelectorAll(".swatches span"),
 
 colorsources.forEach((s, index) => {
   s.addEventListener('click', () => {
-    container.style.backgroundColor = colorsources[index].style.backgroundColor;
+    document.body.style.backgroundColor = colorsources[index].style.backgroundColor;
   })
 })
-
 
 /*  Tra i works ce ne solo alcuni che in hover hanno una gif  */
 
 gif_works.forEach((g) => {
-  var static_path = g.getAttribute("src"),
+  var static_path = g.getAttribute("data-src"),
       gif_path = g.getAttribute("data-hover");
   g.addEventListener("mouseover", (e) => {
     g.setAttribute("src", gif_path);

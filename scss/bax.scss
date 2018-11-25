@@ -1,9 +1,14 @@
 @import "base/_all";
 @import "layout/_all";
 
+body {
+  background-color: #0000d8;
+  @include transition(background-color);
+}
+
 @mixin blend {
   mix-blend-mode: difference;
-  z-index: 0;
+  z-index: $z0;
 }
 
 .blend {
@@ -27,8 +32,6 @@
   padding: $space;
   display: block;
   color: white;
-  background-color: #0000d8;
-  @include transition(background-color);
   min-height: 100%;
 
   &.tall {
@@ -61,6 +64,7 @@ nav {
   height: 100vh;
   top: 0;
   padding: $space 0;
+  z-index: $z1;
 
   &.left {
     left: $space;
@@ -76,6 +80,10 @@ nav {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
   }
+
+  .swatches {
+    mix-blend-mode: screen;
+  }
 }
 
 .label {
@@ -85,6 +93,12 @@ nav {
 $swatches: 12px;
 
 .swatches {
+  position: fixed;
+  top: 50%;
+  right: $space;
+  transform: translateY(-50%);
+  z-index: $z3;
+
   span {
     display: block;
     height: $swatches;
@@ -100,11 +114,15 @@ $swatches: 12px;
   height: 100%;
 
   img {
-    max-width: 100%;
+    max-width: 60%;
     max-height: 80%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  &.big img {
+    @include container;
   }
 }
 
@@ -118,7 +136,7 @@ $swatches: 12px;
   fill: white;
   font-size: 6.5px;
   font-family: $font-family-display;
-  z-index: 100;
+  z-index: $z1;
   max-height: 100vh;
   max-width: 100vw;
 
@@ -127,6 +145,25 @@ $swatches: 12px;
   }
 }
 
+/* Contact modal */
+
+// .modal {
+//   @include transition;
+//   padding: $space;
+//   position: fixed;
+//   z-index: $z3;
+//   width: 100%;
+//   top: 100%;
+//   color: black;
+//   background-color: white;
+//   will-change: transform;
+//   transform: translateY(0);
+//
+//   &.open {
+//     transform: translateY(-100%);
+//   }
+// }
+
 /* Works page */
 
 .works-container {
@@ -134,13 +171,17 @@ $swatches: 12px;
   column-gap: $space;
   max-width: 75rem;
   display: block;
-  margin: $space * 2 auto $space auto;
+  margin: $space * 3 auto $space auto;
 
   @include tablet-portrait-up {
     columns: 2;
   }
 
   @include tablet-landscape-up {
+    columns: 3;
+  }
+
+  @include desktop-up {
     columns: 4;
   }
 
@@ -162,5 +203,102 @@ $swatches: 12px;
       padding-bottom: .5rem;
       margin-top: 0;
     }
+  }
+}
+
+/* About page */
+
+.arrow-down {
+  position: absolute;
+  bottom: $space;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  @include blend;
+}
+
+.about {
+  @include container;
+  padding-bottom: $space * 2;
+
+  .introduction {
+    padding: $space * 2;
+    text-align: center;
+
+    h3 {
+      @include blend;
+    }
+
+    span {
+      background-color: white;
+      color: black;
+    }
+
+    .gun {
+      max-width: 100%;
+      margin-top: $space;
+    }
+  }
+
+  .informations {
+    color: white;
+    @include blend;
+
+    & > div {
+      padding: 0 $space / 2 $space $space / 2;
+    }
+
+    p {
+      margin-bottom: $space / 2;
+    }
+  }
+}
+
+ul.lines {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-top: $space / 4;
+    border-bottom: 1px solid white;
+  }
+}
+
+/* Socials page */
+
+.social {
+  max-width: 45rem;
+  margin: 0 auto;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+
+  .full {
+    margin-bottom: $space;
+  }
+
+  h3 {
+    @include blend;
+    margin-bottom: 0;
+  }
+
+  p {
+    @include blend;
+  }
+
+  ul {
+    @include blend;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-top: $space / 4;
+    }
+  }
+
+  .emoji {
+    @extend h1;
   }
 }

@@ -1,0 +1,1 @@
+var colorsources=document.querySelectorAll(".swatches span"),container=document.querySelector(".container");colorsources.forEach((o,e)=>{o.addEventListener("click",()=>{document.body.style.backgroundColor=colorsources[e].style.backgroundColor})});

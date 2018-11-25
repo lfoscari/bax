@@ -30,9 +30,23 @@ var colorsources = document.querySelectorAll(".swatches span"),
 
 colorsources.forEach((s, index) => {
   s.addEventListener('click', () => {
-    container.style.backgroundColor = colorsources[index].style.backgroundColor;
+    document.body.style.backgroundColor = colorsources[index].style.backgroundColor;
   })
 })
+
+// /*
+//   Quando si preme sul bottome 'contact' appare la modal
+// */
+//
+// var modal = document.getElementById("modal");
+//
+// function openModal() {
+//   modal.classList.add("open");
+// }
+//
+// function closeModal() {
+//   modal.classList.remove("open");
+// }
 
 /*
   I base alla posizione sull'asse y del mouse cambiano l'immagine
