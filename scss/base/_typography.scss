@@ -1,7 +1,7 @@
-$tit: 2.5rem;
-$sub: 1.8rem;
+$tit: 2.3rem;
+$sub: 1.6rem;
 $tag: 1.4rem;
-$par: 1.2rem;
+$par: 1.1rem;
 
 $tit-line-height: 1.2; // 1.3
 $sub-line-height: 1.5;
@@ -68,6 +68,7 @@ h5 {
   font-weight: $regular;
 }
 
+.label,
 a,
 h6,
 li,

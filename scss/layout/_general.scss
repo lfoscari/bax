@@ -63,26 +63,7 @@ a {
   }
 
   &:hover {
-    text-decoration: underline;
+    color: red;
     outline: 0;
-  }
-}
-
-p {
-  a {
-    text-decoration: underline;
-
-    &:hover {
-      color: red;
-    }
-
-    &.nolink {
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-        color: inherit;
-      }
-    }
   }
 }

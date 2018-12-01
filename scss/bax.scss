@@ -44,11 +44,22 @@ main {
   &.full-height {
     height: 100%;
   }
+}
 
-  .project-link {
-    text-align: center;
-    display: block;
-    height: 100%;
+.project-link {
+  text-align: center;
+  display: block;
+  height: 100%;
+}
+
+.project-link__about {
+  height: 300px;
+
+  img {
+    max-height: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -84,6 +95,11 @@ nav {
   .swatches {
     mix-blend-mode: screen;
   }
+
+  a:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
 }
 
 .label {
@@ -100,6 +116,7 @@ $swatches: 12px;
   z-index: $z3;
 
   span {
+    border: 1px solid white;
     display: block;
     height: $swatches;
     width: $swatches;
@@ -129,12 +146,12 @@ $swatches: 12px;
 #rotating_text {
   pointer-events: none;
   position: absolute;
-  width: 1000px;
+  width: 900px;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
   fill: white;
-  font-size: 6.5px;
+  font-size: 6.25px;
   font-family: $font-family-display;
   z-index: $z1;
   max-height: 100vh;
@@ -212,9 +229,14 @@ $swatches: 12px;
   position: absolute;
   bottom: $space;
   left: 0;
+  height: 100px;
   width: 100%;
   text-align: center;
   @include blend;
+
+  svg {
+    height: 100%;
+  }
 }
 
 .about {
@@ -230,8 +252,13 @@ $swatches: 12px;
     }
 
     span {
-      background-color: white;
-      color: black;
+      @include transition;
+      background-color: transparent;
+
+      &:hover {
+        color: black;
+        background-color: white;
+      }
     }
 
     .gun {
@@ -265,9 +292,9 @@ ul.lines {
   }
 }
 
-/* Socials page */
+/* Contact page */
 
-.social {
+.contact {
   max-width: 45rem;
   margin: 0 auto;
   height: 100%;
@@ -276,6 +303,10 @@ ul.lines {
 
   .full {
     margin-bottom: $space;
+
+    &:hover .emoji {
+      animation: float .5s infinite alternate;
+    }
   }
 
   h3 {
@@ -299,6 +330,41 @@ ul.lines {
   }
 
   .emoji {
+    display: block;
+    margin-bottom: 0;
     @extend h1;
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(2.5px);
+  }
+
+  to {
+    transform: translateY(-2.5px);
+  }
+}
+
+/* Social page - the wall */
+
+.social {
+  margin-top: $space * 3;
+
+  .cell {
+    @extend .three;
+    padding-bottom: $space;
+
+    &:hover img {
+      transform: scaleX(-1);
+    }
+
+    &:nth-child(3n + 1) {
+      @extend .four;
+    }
+  }
+
+  img {
+    max-width: 100%;
   }
 }

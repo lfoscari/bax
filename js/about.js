@@ -1,5 +1,8 @@
 var colorsources = document.querySelectorAll(".swatches span"),
-  container = document.querySelector(".container");
+  container = document.querySelector(".container"),
+  topics = document.querySelectorAll(".introduction span"),
+  image_target = document.querySelector(".gun");
+
 /*  Cliccando gli swatches cambia il backgroundColor del container  */
 
 colorsources.forEach((s, index) => {
@@ -8,16 +11,16 @@ colorsources.forEach((s, index) => {
   })
 })
 
-// /*
-//   Quando si preme sul bottome 'contact' appare la modal
-// */
-//
-// var modal = document.getElementById("modal");
-//
-// function openModal() {
-//   modal.classList.add("open");
-// }
-//
-// function closeModal() {
-//   modal.classList.remove("open");
-// }
+/* In hover sui topic l'immagine sotto cambia */
+
+var image, temp;
+
+topics.forEach((t) => {
+  t.addEventListener('mouseover', (event) => {
+    image = event.target.getAttribute('data-image');
+    if(image != temp) {
+      image_target.setAttribute('src', image);
+      image = temp;
+    }
+  })
+});

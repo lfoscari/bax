@@ -110,6 +110,11 @@
 .cols {
   display: flex;
   flex-wrap: wrap;
+
+  &.jc {
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 
 .five {
@@ -122,14 +127,21 @@
 .seven {
   width: 100%;
   @include tablet-landscape-up {
-    width: 70%;
+    width: 66%;
   }
 }
 
 .three {
   width: 100%;
   @include tablet-landscape-up {
-    width: 30%;
+    width: 33%;
+  }
+}
+
+.four {
+  width: 100%;
+  @include tablet-landscape-up {
+    width: 40%;
   }
 }
 
