@@ -111,7 +111,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  &.jc {
+  &.justify {
     justify-content: space-around;
     align-items: center;
   }
@@ -127,14 +127,14 @@
 .seven {
   width: 100%;
   @include tablet-landscape-up {
-    width: 66%;
+    width: 66.666%;
   }
 }
 
 .three {
   width: 100%;
   @include tablet-landscape-up {
-    width: 33%;
+    width: 33.333%;
   }
 }
 
