@@ -30,10 +30,10 @@ gulp.task("css", () => {
           browsers: ["last 2 versions"],
           cascade: false
       }))
-      //.pipe(purgecss({
-      //  content: ["./templates/*.html", "./layouts/*.html", "./partials/*.html", "./js/*.js"],
-      //  whitelist: ["ul", "ol", "li"]
-      //}))
+      .pipe(purgecss({
+       content: ["./public/*.html", "./js/*.js"],
+       whitelist: ["ul", "ol", "li"]
+      }))
       .pipe(sourcemaps.write("./"))
       .pipe(gulp.dest("./public/css/"))
 });
