@@ -1,1 +1,1 @@
-[https://lfoscari.github.io/bax/](https://lfoscari.github.io/bax/)
+[Preview](https://lfoscari.github.io/bax/public)
