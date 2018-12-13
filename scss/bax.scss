@@ -398,10 +398,6 @@ ul.lines {
     @extend .three;
     padding-bottom: $space;
 
-    &:hover img {
-      transform: scaleX(-1);
-    }
-
     &:nth-child(3n + 1) {
       @extend .four;
     }
