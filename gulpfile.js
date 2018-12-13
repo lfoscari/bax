@@ -6,6 +6,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify-es").default;
 const rename = require("gulp-rename");
+var server = require('gulp-server-livereload');
 
 var theme = "bax";
 
@@ -43,4 +44,15 @@ gulp.task("watch", ["css", "js"], () => {
   gulp.watch("./js/*.js", ["js"]);
 });
 
-gulp.task("default", ["watch"]);
+gulp.task('webserver', function() {
+  gulp.src('./')
+    .pipe(server({
+      path: "public/index.html",
+      livereload: true,
+      directoryListing: true,
+      open: true,
+      host: "0.0.0.0"
+    }));
+});
+
+gulp.task("default", ["watch", "webserver"]);

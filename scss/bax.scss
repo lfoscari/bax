@@ -38,7 +38,7 @@ body {
   display: block;
   color: white;
   min-height: 100%;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 main {
@@ -73,6 +73,10 @@ main {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  @include phone-only {
+    height: 250px;
   }
 }
 
@@ -166,9 +170,11 @@ $swatches: 12px;
 }
 
 @include phone-only {
+
   #rotating_text {
     transform-origin: center;
-    transform: translate(-50%, -50%) scale(2.4);
+    transform: translate(-50%, -50%); //scale(2.4)
+    max-width: 200%;
 
     #text {
       max-width: none;
@@ -177,10 +183,10 @@ $swatches: 12px;
   }
 
   .over-width-mobile {
+
     .project-link,
     .project-link__about {
-      position: relative;
-      width: 150%;
+      position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%); // rotate(90deg)
@@ -192,7 +198,7 @@ $swatches: 12px;
     }
 
     .project-link__about {
-      max-width: none;
+      width: 100%;
     }
   }
 }

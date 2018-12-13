@@ -24,3 +24,9 @@ topics.forEach((t) => {
     }
   })
 });
+
+// /* Il div che contiene le immagini che cambiano all'hover dei test è alto quanto la prima immagine */
+//
+// var imageContainer = document.querySelector(".project-link__about");
+// var imageHeight = imageContainer.querySelector("img").offsetHeight;
+// imageContainer.style.height = imageHeight + "px";
