@@ -1,10 +1,29 @@
 var colorsources = document.querySelectorAll(".swatches span"),
-  container = document.querySelector(".container"),
   project_link = document.querySelector(".project-link"),
   image_project = project_link.querySelector("img"),
-  left_label = document.querySelector(".label"),
-  /*  Questa struttura come si può portare su wordpress?  */
-  projects = [{
+  left_label = document.querySelector(".label");
+
+/*
+  Animazione del testo
+*/
+
+var so = 0;
+
+function Marquee() {
+  tp.setAttributeNS(null, "startOffset", so + "%");
+  if(so <= 0) so = 50;
+  so -= .025;
+  requestAnimationFrame(Marquee);
+}
+
+requestAnimationFrame(Marquee);
+
+/*
+  La posizione del mouse incide sull'immagine e il link al centro della pagina
+*/
+
+/*  Questa struttura come si può portare su wordpress?  */
+var  projects = [{
       title: "Fendi - #FF",
       image: "img/fendi.png",
       url: "works.html"
@@ -25,28 +44,6 @@ var colorsources = document.querySelectorAll(".swatches span"),
       url: "works.html"
     }
   ];
-
-/*  Cliccando gli swatches cambia il backgroundColor del container  */
-
-colorsources.forEach((s, index) => {
-  s.addEventListener('click', () => {
-    document.body.style.backgroundColor = colorsources[index].style.backgroundColor;
-  })
-})
-
-// /*
-//   Quando si preme sul bottome 'contact' appare la modal
-// */
-//
-// var modal = document.getElementById("modal");
-//
-// function openModal() {
-//   modal.classList.add("open");
-// }
-//
-// function closeModal() {
-//   modal.classList.remove("open");
-// }
 
 /*
   I base alla posizione sull'asse y del mouse cambiano l'immagine
@@ -78,3 +75,19 @@ onmousemove = function(e) {
     left_label.innerHTML = projects[i].title;
   }
 };
+
+/*
+  Cliccando gli swatches cambia il backgroundColor del container
+  il colore viene salvato nel local storage
+*/
+
+document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
+
+colorsources.forEach((s, index) => {
+  s.addEventListener("click", () => {
+    document.body.style.transition = "background-color linear .25s";
+    var c = colorsources[index].style.backgroundColor;
+    document.body.style.backgroundColor = c;
+    localStorage.setItem("backgroundColor", c);
+  });
+});

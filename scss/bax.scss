@@ -4,7 +4,7 @@
 body {
   overflow-x: hidden;
   background-color: #0000d8;
-  @include transition(background-color);
+  // @include transition(background-color);
 }
 
 @mixin blend {
@@ -334,7 +334,7 @@ ul.lines {
 
   li {
     margin-top: $space / 4;
-    padding-bottom: 7.5px;
+    padding-bottom: $space / 4;
     border-bottom: 1px solid white;
   }
 }
