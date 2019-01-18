@@ -3,6 +3,8 @@ var colorsources = document.querySelectorAll(".swatches span"),
   image_project = project_link.querySelector("img"),
   left_label = document.querySelector(".label");
 
+var isMobile = window.innerWidth < 980 ? true : false;
+
 /*
   Animazione del testo
 */
@@ -52,29 +54,45 @@ var  projects = [{
   controllo se si trovi in una sezione diversa da quella precedente
 */
 
-var view_height_half = window.innerHeight / 2,
-    view_height_quart = view_height_half / 2,
-    i = 0;
+if (!isMobile) {
 
-onmousemove = function(e) {
-  var y = e.clientY;
-      t = i;
+  var view_height_half = window.innerHeight / 2,
+      view_height_quart = view_height_half / 2,
+      i = 0;
 
-  if (y < view_height_quart)
-    i = 0;
-  else if (y < view_height_half)
-    i = 1;
-  else if (y < view_height_half + view_height_quart)
-    i = 2;
-  else
-    i = 3;
+  onmousemove = function(e) {
+    var y = e.clientY;
+        t = i;
 
-  if(i != t) {
-    project_link.setAttribute("href", projects[i].url);
-    image_project.setAttribute("src", projects[i].image);
-    left_label.innerHTML = projects[i].title;
-  }
-};
+    if (y < view_height_quart)
+      i = 0;
+    else if (y < view_height_half)
+      i = 1;
+    else if (y < view_height_half + view_height_quart)
+      i = 2;
+    else
+      i = 3;
+
+    if(i != t) {
+      project_link.setAttribute("href", projects[i].url);
+      image_project.setAttribute("src", projects[i].image);
+      left_label.innerHTML = projects[i].title;
+    }
+  };
+
+} else {
+
+    var i = 0;
+
+    setInterval(function () {
+      project_link.setAttribute("href", projects[i].url);
+      image_project.setAttribute("src", projects[i].image);
+      left_label.innerHTML = projects[i].title;
+
+      i = (i + 1) % projects.length;
+    }, 750);
+
+}
 
 /*
   Cliccando gli swatches cambia il backgroundColor del container

@@ -22,6 +22,7 @@ body {
   top: $space;
   width: 100%;
   text-align: center;
+  z-index: $z1;
 
   a {
     @extend h1;
@@ -34,7 +35,7 @@ body {
 }
 
 .container {
-  padding: $space;
+  padding: 0 $space;
   display: block;
   color: white;
   min-height: 100%;
@@ -99,7 +100,7 @@ nav {
   height: 100%;
   top: 0;
   padding: $space 0;
-  z-index: $z1;
+  z-index: $z2;
 
   &.left {
     left: $space;
@@ -318,7 +319,7 @@ $swatches: 12px;
     @include blend;
 
     & > div {
-      padding: 0 $space / 2 $space $space / 2;
+      padding: 0 $space $space $space;
     }
 
     p {

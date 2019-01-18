@@ -48,7 +48,7 @@ gulp.task('webserver', function() {
   gulp.src('./')
     .pipe(server({
       path: "public/index.html",
-      livereload: true,
+      livereload: false,
       directoryListing: true,
       open: true,
       host: "0.0.0.0"
