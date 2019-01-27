@@ -6,7 +6,6 @@ body {
   background-color: #0000d8;
   // @include transition(background-color);
 }
-
 @mixin blend {
   mix-blend-mode: difference;
   z-index: $z0;
@@ -75,7 +74,6 @@ main {
     top: 50%;
     transform: translateY(-50%);
   }
-
   @include phone-only {
     height: 250px;
   }
@@ -130,7 +128,6 @@ nav {
 .label {
   width: 100%;
 }
-
 $swatches: 12px;
 
 .swatches {
@@ -169,9 +166,7 @@ $swatches: 12px;
     fill: none;
   }
 }
-
 @include phone-only {
-
   #rotating_text {
     transform-origin: center;
     transform: translate(-50%, -50%); //scale(2.4)
@@ -184,7 +179,6 @@ $swatches: 12px;
   }
 
   .over-width-mobile {
-
     .project-link,
     .project-link__about {
       position: absolute;
@@ -203,9 +197,7 @@ $swatches: 12px;
     }
   }
 }
-
 /* Contact modal */
-
 // .modal {
 //   @include transition;
 //   padding: $space;
@@ -222,24 +214,19 @@ $swatches: 12px;
 //     transform: translateY(-100%);
 //   }
 // }
-
 /* Works page */
-
 .works-container {
   columns: 1;
   column-gap: $space;
   max-width: 75rem;
   display: block;
   margin: $space * 3 auto $space auto;
-
   @include tablet-portrait-up {
     columns: 2;
   }
-
   @include tablet-landscape-up {
     columns: 3;
   }
-
   @include desktop-up {
     columns: 4;
   }
@@ -264,9 +251,7 @@ $swatches: 12px;
     }
   }
 }
-
 /* About page */
-
 .arrow-down {
   position: absolute;
   bottom: $space;
@@ -282,13 +267,12 @@ $swatches: 12px;
 }
 
 .about {
-  @include container;
+  @include article;
   padding-bottom: $space * 2;
 
   .introduction {
     padding: $space;
     text-align: center;
-
     @include tablet-landscape-up {
       padding: $space * 2;
     }
@@ -319,7 +303,7 @@ $swatches: 12px;
     @include blend;
 
     & > div {
-      padding: 0 $space $space $space;
+      padding: 0 $space $space;
     }
 
     p {
@@ -339,9 +323,7 @@ ul.lines {
     border-bottom: 1px solid white;
   }
 }
-
 /* Contact page */
-
 .contact {
   max-width: 45rem;
   margin: 0 auto;
@@ -354,7 +336,7 @@ ul.lines {
     margin-bottom: $space;
 
     &:hover .emoji {
-      animation: float .5s infinite alternate;
+      animation: float 0.5s infinite alternate;
     }
   }
 
@@ -384,7 +366,6 @@ ul.lines {
     @extend h1;
   }
 }
-
 @keyframes float {
   from {
     transform: translateY(2.5px);
@@ -394,9 +375,7 @@ ul.lines {
     transform: translateY(-2.5px);
   }
 }
-
 /* Social page - the wall */
-
 .social {
   margin-top: $space * 3;
   text-align: center;
@@ -413,4 +392,61 @@ ul.lines {
   img {
     max-width: 100%;
   }
+}
+
+.article {
+  @include article;
+  min-height: 100%;
+  padding: $space * 6 0 $space * 2 0;
+  color: white;
+
+  h1 {
+    text-align: center;
+    margin-bottom: $space * 2;
+  }
+
+  figure {
+    margin: $space / 2 0;
+  }
+
+  .content {
+    margin-bottom: $space / 2;
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ol,
+    p,
+    span,
+    ul {
+      @extend .blend;
+    }
+
+    iframe {
+      width: 100%;
+    }
+  }
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.embed-container embed,
+.embed-container iframe,
+.embed-container object {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
