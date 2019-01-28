@@ -6,6 +6,7 @@ body {
   background-color: #0000d8;
   // @include transition(background-color);
 }
+
 @mixin blend {
   mix-blend-mode: difference;
   z-index: $z0;
@@ -128,6 +129,7 @@ nav {
 .label {
   width: 100%;
 }
+
 $swatches: 12px;
 
 .swatches {
@@ -166,7 +168,9 @@ $swatches: 12px;
     fill: none;
   }
 }
+
 @include phone-only {
+
   #rotating_text {
     transform-origin: center;
     transform: translate(-50%, -50%); //scale(2.4)
@@ -197,24 +201,9 @@ $swatches: 12px;
     }
   }
 }
-/* Contact modal */
-// .modal {
-//   @include transition;
-//   padding: $space;
-//   position: fixed;
-//   z-index: $z3;
-//   width: 100%;
-//   top: 100%;
-//   color: black;
-//   background-color: white;
-//   will-change: transform;
-//   transform: translateY(0);
-//
-//   &.open {
-//     transform: translateY(-100%);
-//   }
-// }
+
 /* Works page */
+
 .works-container {
   columns: 1;
   column-gap: $space;
@@ -251,7 +240,9 @@ $swatches: 12px;
     }
   }
 }
+
 /* About page */
+
 .arrow-down {
   position: absolute;
   bottom: $space;
@@ -323,7 +314,9 @@ ul.lines {
     border-bottom: 1px solid white;
   }
 }
+
 /* Contact page */
+
 .contact {
   max-width: 45rem;
   margin: 0 auto;
@@ -366,6 +359,7 @@ ul.lines {
     @extend h1;
   }
 }
+
 @keyframes float {
   from {
     transform: translateY(2.5px);
@@ -375,7 +369,9 @@ ul.lines {
     transform: translateY(-2.5px);
   }
 }
+
 /* Social page - the wall */
+
 .social {
   margin-top: $space * 3;
   text-align: center;
@@ -394,11 +390,17 @@ ul.lines {
   }
 }
 
+/* Article page */
+
 .article {
   @include article;
   min-height: 100%;
-  padding: $space * 6 0 $space * 2 0;
+  padding: $space * 6 $space $space * 2 $space;
   color: white;
+
+  @include tablet-landscape-up {
+    padding: $space * 6 0 $space * 2 0;
+  }
 
   h1 {
     text-align: center;
@@ -428,6 +430,18 @@ ul.lines {
 
     iframe {
       width: 100%;
+    }
+
+    .double {
+      @include grid(50);
+
+      margin: 0 -1 * $space / 2;
+
+      figure {
+        min-width: 300px;
+        margin-top: 0;
+        padding: 0 $space / 2;
+      }
     }
   }
 }
