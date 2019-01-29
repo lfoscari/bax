@@ -47,22 +47,22 @@ function isHome () {
       {
         title: "Fendi - #FF",
         image: "img/fendi.png",
-        url: "works.html"
+        url: "article.html"
       },
       {
         title: "Giorgio Armani - Le Jeu",
         image: "img/ea.jpg",
-        url: "works.html"
+        url: "article.html"
       },
       {
         title: "Capod'opera - Milan Design Week",
         image: "img/armani.jpg",
-        url: "works.html"
+        url: "article.html"
       },
       {
         title: "Diesel - New denim",
         image: "img/diesel.jpg",
-        url: "works.html"
+        url: "article.html"
       }
     ];
 
@@ -168,7 +168,17 @@ function isWorks () {
 *******************/
 
 function isArticle () {
-  console.log("Article page");
+  const intro = document.querySelector(".intro"),
+        intro_img = intro.querySelector("img");
+  var t = 0;
+
+  intro.onmousemove = function(e) {
+    if(( x = e.clientX ) != t) {
+      x = Math.floor( x * 100 / intro.clientWidth );
+      intro_img.style.filter = `invert(${x}%)`;
+      t = x;
+    }
+  }
 }
 
 /*******************

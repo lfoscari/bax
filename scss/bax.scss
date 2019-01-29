@@ -392,15 +392,9 @@ ul.lines {
 
 /* Article page */
 
-.article {
-  @include article;
+article {
   min-height: 100%;
-  padding: $space * 6 $space $space * 2 $space;
   color: white;
-
-  @include tablet-landscape-up {
-    padding: $space * 6 0 $space * 2 0;
-  }
 
   h1 {
     text-align: center;
@@ -408,11 +402,23 @@ ul.lines {
   }
 
   figure {
-    margin: $space / 2 0;
+    margin: $space 0;
+  }
+
+  .double {
+    @include grid(50);
+    margin: $space -1 * $space / 2;
+
+    figure {
+      margin: 0;
+      padding: 0 $space / 2;
+    }
   }
 
   .content {
+    @include article;
     margin-bottom: $space / 2;
+    padding: $space;
 
     a,
     h1,
@@ -432,17 +438,43 @@ ul.lines {
       width: 100%;
     }
 
-    .double {
-      @include grid(50);
-
-      margin: 0 -1 * $space / 2;
-
-      figure {
-        min-width: 300px;
-        margin-top: 0;
-        padding: 0 $space / 2;
-      }
+    ul {
+      list-style: none;
+      padding-left: 0;
     }
+  }
+}
+
+.intro {
+  height: 50vh;
+  width: 100%;
+  display: block;
+  position: relative;
+
+  .intro-title {
+    position: absolute;
+    bottom: 0;
+    padding: $space;
+    width: 100%;
+    text-align: center;
+    @extend .blend;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  img {
+    // filter: invert(100%) blur(5px);
+    opacity: .3;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+  }
+
+  p {
+    padding-top: $space / 4;
   }
 }
 
