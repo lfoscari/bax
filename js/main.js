@@ -12,8 +12,7 @@ document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
 colorsources.forEach((s, index) => {
   s.addEventListener("click", () => {
     document.body.style.transition = "background-color linear .25s";
-    var c = colorsources[index].style.backgroundColor;
-    document.body.style.backgroundColor = c;
+    var c = document.body.style.backgroundColor = colorsources[index].style.backgroundColor;
     localStorage.setItem("backgroundColor", c);
   });
 });
@@ -173,8 +172,8 @@ function isArticle () {
   var t = 0;
 
   intro.onmousemove = function(e) {
-    if(( x = e.clientX ) != t) {
-      x = Math.floor( x * 100 / intro.clientWidth );
+    if(( x = e.clientY ) != t) {
+      x = 100 - Math.floor( x * 100 / intro.clientHeight );
       intro_img.style.filter = `invert(${x}%)`;
       t = x;
     }
