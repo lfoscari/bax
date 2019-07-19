@@ -14,18 +14,11 @@ svg {
   shape-rendering: geometricPrecision;
 }
 
-html {
-  height: 100%;
-}
-
 body,
 html {
+  height: 100%;
   width: 100%;
   min-height: 100%;
-}
-
-body {
-  height: 100%;
 }
 
 hr {

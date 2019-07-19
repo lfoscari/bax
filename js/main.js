@@ -8,10 +8,12 @@ var colorsources = document.querySelectorAll(".swatches span"),
 */
 
 document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
+setTimeout(function () {
+  document.body.style.transition = "background-color linear .25s";
+}, 500);
 
 colorsources.forEach((s, index) => {
   s.addEventListener("click", () => {
-    document.body.style.transition = "background-color linear .25s";
     var c = document.body.style.backgroundColor = colorsources[index].style.backgroundColor;
     localStorage.setItem("backgroundColor", c);
   });
@@ -192,9 +194,10 @@ function isSocial () {
       name = 'andrea_bax',
       howManyPosts = 100;
 
+
   instagramPhotos("#artdirection");
 
-  async function instagramPhotos() {
+  async function instagramPhotos(tag) {
     posts.innerHTML = ''
     const res = []
 
@@ -204,7 +207,9 @@ function isSocial () {
       // userInfoSource.data contains the HTML from axios
       const jsonObject = userInfoSource.data.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1),
             userInfo = JSON.parse(jsonObject),
-            mediaArray = userInfo.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, howManyPosts)
+            mediaArray = userInfo.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges;
+
+      console.log(mediaArray);
 
       for (let media of mediaArray) {
         const node = media.node
@@ -214,8 +219,6 @@ function isSocial () {
         }
 
         var isWorkMedia = node.edge_media_to_caption.edges[0].node.text.includes(tag);
-
-        console.log(media);
 
         if (isWorkMedia) {
 

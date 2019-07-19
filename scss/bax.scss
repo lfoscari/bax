@@ -23,6 +23,7 @@ body {
   width: 100%;
   text-align: center;
   z-index: $z1;
+  @include blend;
 
   a {
     @extend h1;
@@ -210,6 +211,7 @@ $swatches: 12px;
   max-width: 75rem;
   display: block;
   margin: $space * 3 auto $space auto;
+
   @include tablet-portrait-up {
     columns: 2;
   }
@@ -431,7 +433,7 @@ article {
     p,
     span,
     ul {
-      @extend .blend;
+      @include blend;
     }
 
     iframe {
@@ -457,7 +459,7 @@ article {
     padding: $space;
     width: 100%;
     text-align: center;
-    @extend .blend;
+    @include blend;
 
     h1 {
       margin-bottom: 0;
